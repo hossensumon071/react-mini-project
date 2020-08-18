@@ -1,12 +1,13 @@
 import React, {Fragment} from 'react'
 import ReactDom from 'react-dom'
+import './index.css'
 
 
 
 function Books() {
   return(
     <>
-      <div>
+      <div className="books">
         <Book/>
         <Book/>
         <Book/>
@@ -18,7 +19,7 @@ function Books() {
 }
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <CoverImage/>
       <Title/>
       <Author/>
@@ -33,7 +34,14 @@ const CoverImage = () =>
   alt="wonky donky"
   />
 
-const Title = () => <h1>The Wonkey Donky</h1>
-const Author = () => <p>by Craing Smith</p>
+const Title = () => <h1 style={{ fontSize: "2rem", color: "red"}}>The Wonkey Donky</h1>
+
+const authorStyle = {
+  letterSpacing: "10px",
+  color: "green"
+};
+
+
+const Author = () => <p style={authorStyle}>by Craing Smith</p>
 
 ReactDom.render(<Books/>,document.getElementById('root'));
